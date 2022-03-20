@@ -1,0 +1,14 @@
+- defaults:
+    link:
+      create: true
+      relative: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    # add a convenient symlink to the dotfiles
+    ~/.dotfiles: ""
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
