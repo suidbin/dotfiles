@@ -36,3 +36,13 @@ export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/python/startup.py"
 export PYTHONHISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/python/python_history"
 
+# Enable TrueColor support
+case $TERM in
+   linux-truecolor |\
+   screen-truecolor |\
+   tmux-truecolor |\
+   xterm-256color |\
+   xterm-truecolor )	export COLORTERM=truecolor ;;
+   vte*)
+esac
+
