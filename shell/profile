@@ -2,6 +2,16 @@
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
 
+# XDG Manual Setup -- https://wiki.archlinux.org/title/XDG_Base_Directory
+#   Since this profile is potentially used via WSL on windows, or remotely
+#   on systems that do not configure the XDG base directories, and since
+#   not all applications/utilities support it, we set the directories
+#   manually here.
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
