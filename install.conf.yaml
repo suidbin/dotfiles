@@ -10,5 +10,6 @@
     ~/.profile:
       force: true
       path: shell/profile
-
+    # add a convenient symlink to the dotfiles
+    ~/.dotfiles: ""
 
