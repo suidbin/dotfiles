@@ -5,6 +5,14 @@
 
 - clean: ['~', '~/.config']
 
+- create:
+    ~/.local/state:
+      mode: 0700
+    ~/.local/state/bash:
+      mode: 0700
+    ~/.local/share:
+      mode: 0700
+
 - link:
     ~/.config/vim: vim
     ~/.profile:
