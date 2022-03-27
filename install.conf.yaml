@@ -19,6 +19,9 @@
     ~/.profile:
       force: true
       path: shell/profile
+    ~/.bashrc:
+      force: true
+      path: shell/bashrc
     # add a convenient symlink to the dotfiles
     ~/.dotfiles: ""
 
