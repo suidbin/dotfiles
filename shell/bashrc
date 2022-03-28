@@ -12,8 +12,8 @@ esac
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 HISTFILE="$XDG_STATE_HOME"/bash/history
-# Ignore some controlling instructions
-HISTIGNORE="[   ]*:&:bg:fg:exit"
+# Ignore some controlling instructions, duplicates, and ls commands
+HISTIGNORE="[   ]*:&:[fb]g:exit:ls"
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -29,6 +29,9 @@ shopt -s checkwinsize
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
+
+# Ignore small typos when changing directories
+shopt -s cdspell
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"

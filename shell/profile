@@ -30,10 +30,13 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Setting VIM to respect XDG standard and setting it as the VISUAL editor
+# Setting VIM to respect XDG standard
 export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
+# if vim is present, set it as VISUAL, GIT_EDITOR, and the MANPAGER
 if command -v vim >/dev/null ; then
     export VISUAL="$(command -v vim)"
+    export GIT_EDITOR=$VISUAL
+    export MANPAGER="vim -c 'set keywordprg=:Man nonu' -M +MANPAGER -"
 fi
 
 # Python Customizations
@@ -44,9 +47,12 @@ export PYTHONHISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/python/python_histor
 case $TERM in
    linux-truecolor |\
    screen-truecolor |\
+   screen-256color |\
    tmux-truecolor |\
    xterm-256color |\
-   xterm-truecolor )	export COLORTERM=truecolor ;;
+   xterm-truecolor )
+       export COLORTERM=truecolor
+       export CLICOLOR=1 ;;
    vte*)
 esac
 
