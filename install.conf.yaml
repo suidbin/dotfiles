@@ -16,6 +16,7 @@
 - link:
     ~/.config/vim: vim
     ~/.config/python: python
+    ~/.config/tmux: tmux
     ~/.profile:
       force: true
       path: shell/profile
