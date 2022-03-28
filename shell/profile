@@ -30,7 +30,11 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Setting VIM to respect XDG standard and setting it as the VISUAL editor
 export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
+if command -v vim >/dev/null ; then
+    export VISUAL="$(command -v vim)"
+fi
 
 # Python Customizations
 export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/python/startup.py"
