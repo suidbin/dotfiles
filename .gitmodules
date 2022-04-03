@@ -8,3 +8,6 @@
 [submodule "vim/pack/colors/start/tender"]
 	path = vim/pack/colors/start/tender
 	url = https://github.com/jacoborus/tender.vim.git
+[submodule "vim/pack/plugins/opt/tmuxline"]
+	path = vim/pack/plugins/opt/tmuxline
+	url = https://github.com/edkolev/tmuxline.vim.git
