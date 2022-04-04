@@ -31,7 +31,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # Setting VIM to respect XDG standard
-export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
+export VIMINIT="set nocp | source $XDG_CONFIG_HOME/vim/vimrc"
 # if vim is present, set it as VISUAL, GIT_EDITOR, and the MANPAGER
 if command -v vim >/dev/null ; then
     export VISUAL="$(command -v vim)"
@@ -40,8 +40,8 @@ if command -v vim >/dev/null ; then
 fi
 
 # Python Customizations
-export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/python/startup.py"
-export PYTHONHISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/python/python_history"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
+export PYTHONHISTFILE="$XDG_DATA_HOME/python/python_history"
 
 # Enable TrueColor support
 case $TERM in
