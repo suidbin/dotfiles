@@ -56,5 +56,7 @@ case $TERM in
    vte*)
 esac
 
-# Set less to save the history in $XDG_DATA_HOME
-export LESSHISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/lesshst"
+# Set less/gdb to save the history in $XDG_DATA_HOME
+export LESSHISTFILE="$XDG_DATA_HOME"/less_history
+export GDBHISTFILE="$XDG_DATA_HOME"/gdb_history
+export GEF_RC="$XDG_CONFIG_HOME"/gdb/gefrc

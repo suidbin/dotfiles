@@ -1,0 +1,11 @@
+[gef]
+extra_plugins_dir = ~/.config/gdb/gef-extras/scripts
+
+[pcustom]
+struct_path = ~/.config/gdb/gef-extras/structs
+
+[syscall-args]
+path = ~/.config/gdb/gef-extras/syscall-tables
+
+[context]
+libc_args_path = ~/.config/gdb/gef-extras/glibc-function-args

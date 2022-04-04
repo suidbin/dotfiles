@@ -17,6 +17,7 @@
     ~/.config/vim: vim
     ~/.config/python: python
     ~/.config/tmux: tmux
+    ~/.config/gdb: gdb
     ~/.profile:
       force: true
       path: shell/profile
