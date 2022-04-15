@@ -71,6 +71,11 @@ set keywordprg=:Man
 if has('mouse')
     set mouse=a
 endif
+" Enable mouse handling for modern terminal emulators
+" https://stackoverflow.com/questions/7000960/
+if has('mouse_sgr')
+    set ttymouse=sgr
+endif
 
 if has("autocmd")
 
