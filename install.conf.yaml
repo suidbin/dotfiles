@@ -24,6 +24,7 @@
     ~/.bashrc:
       force: true
       path: shell/bashrc
+    ~/.config/bash_aliases: shell/bash_aliases
     # add a convenient symlink to the dotfiles
     ~/.dotfiles: ""
 

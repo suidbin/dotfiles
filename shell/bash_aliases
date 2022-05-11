@@ -1,0 +1,22 @@
+# set up colors in some commands if supported
+case "$TERM" in
+    *color)
+        if [ -x /usr/bin/dircolors ]; then
+            test -r $XDG_CONFIG_HOME/dircolors && eval "$(dircolors -b $XDG_CONFIG_HOME/dircolors)" || eval "$(dircolors -b)"
+        fi
+        alias ls='ls --color=auto'
+        alias grep='grep --color=auto'
+        alias fgrep='fgrep --color=auto'
+        alias egrep='egrep --color=auto'
+
+        # colorized cat
+        if hash pygmentize 2>/dev/null; then
+            alias pygmentize='pygmentize -f terminal16m -O style=monokai'
+            alias ccat='pygmentize -g'
+        fi
+    ;;
+esac        
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
