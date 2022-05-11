@@ -42,6 +42,7 @@ fi
 # Python Customizations
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 export PYTHONHISTFILE="$XDG_DATA_HOME/python/python_history"
+export PIPENV_VENV_IN_PROJECT=1
 
 # Enable TrueColor support
 case $TERM in
