@@ -11,7 +11,7 @@ esac
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
-HISTFILE="$XDG_STATE_HOME"/bash/history
+HISTFILE="$XDG_DATA_HOME"/bash_history
 # Ignore some controlling instructions, duplicates, and ls commands
 HISTIGNORE="[   ]*:&:[fb]g:exit:ls"
 

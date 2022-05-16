@@ -61,3 +61,8 @@ esac
 export LESSHISTFILE="$XDG_DATA_HOME"/less_history
 export GDBHISTFILE="$XDG_DATA_HOME"/gdb_history
 export GEF_RC="$XDG_CONFIG_HOME"/gdb/gefrc
+
+# allow local customizations
+if [ -f "${XDG_CONFIG_HOME}/profile_local" ]; then
+    source "${XDG_CONFIG_HOME}/profile_local"
+fi
