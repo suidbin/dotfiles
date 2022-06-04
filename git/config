@@ -1,0 +1,5 @@
+
+# Allow local customization in a gitconfig_local file
+[include]
+    path = ~/.config/git/config_local
+

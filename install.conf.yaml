@@ -16,6 +16,9 @@
     ~/.config/python: python
     ~/.config/tmux: tmux
     ~/.config/gdb: gdb
+    ~/.config/git/:
+      glob: true
+      path: git/*
     ~/.profile:
       force: true
       path: shell/profile

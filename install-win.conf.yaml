@@ -6,6 +6,9 @@
 - clean: ['~', '~/.config']
 
 - link:
+    ~/.config/:
+      glob: true
+      path: git/*
     # add a convenient symlink to the dotfiles
     ~/.dotfiles: ""
 
