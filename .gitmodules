@@ -5,18 +5,24 @@
 [submodule "vim/pack/plugins/start/lightline"]
 	path = vim/pack/plugins/start/lightline
 	url = https://github.com/itchyny/lightline.vim.git
+	ignore = dirty
 [submodule "vim/pack/colors/start/tender"]
 	path = vim/pack/colors/start/tender
 	url = https://github.com/jacoborus/tender.vim.git
+	ignore = dirty
 [submodule "vim/pack/plugins/opt/tmuxline"]
 	path = vim/pack/plugins/opt/tmuxline
 	url = https://github.com/edkolev/tmuxline.vim.git
+	ignore = dirty
 [submodule "vim/pack/plugins/start/vim-vinegar"]
 	path = vim/pack/plugins/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+	ignore = dirty
 [submodule "gdb/gef"]
 	path = gdb/gef
 	url = https://github.com/hugsy/gef.git
+	ignore = dirty
 [submodule "gdb/gef-extras"]
 	path = gdb/gef-extras
 	url = https://github.com/hugsy/gef-extras.git
+	ignore = dirty
