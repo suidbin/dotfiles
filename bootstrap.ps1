@@ -24,6 +24,12 @@ catch [UnauthorizedAccessException]
     start-process -Wait -Verb runas reg -ArgumentList $args
 }
 
+# install/upgrade winget
+$releases_url = "https://api.github.com/repos/microsoft/winget-cli/releases"
+$releases = Invoke-RestMethod -uri "$($releases_url)"
+$latestRelease = $releases.assets | Where { $_.browser_download_url.EndsWith("msixbundle") } | Select -First 1
+Add-AppxPackage -Path $latestRelease.browser_download_url
+
 # Check for and install git
 # winget install Git.Git
 # Check for and install powershell
