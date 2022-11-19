@@ -31,7 +31,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # Setting VIM to respect XDG standard
-export VIMINIT="set nocp | source $XDG_CONFIG_HOME/vim/vimrc"
+export VIMINIT="set nocp | source $XDG_CONFIG_HOME/vim/init.vim"
 # if vim is present, set it as VISUAL, GIT_EDITOR, and the MANPAGER
 if command -v vim >/dev/null ; then
     export VISUAL="$(command -v vim)"
