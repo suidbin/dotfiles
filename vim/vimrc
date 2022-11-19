@@ -125,7 +125,8 @@ if exists('+termguicolors')
 endif
 
 " set colorscheme and lightline theme
-colorscheme tender
+packadd! onedark.vim
+colorscheme onedark
 let g:lightline = {
-    \ 'colorscheme': 'tender'
+    \ 'colorscheme': 'onedark'
     \ }
