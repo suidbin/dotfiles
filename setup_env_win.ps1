@@ -31,6 +31,10 @@ $envs = @{
     PYENV_HOME = Join-Path $Env:UserProfile .local pyenv pyenv-win
 }
 
+if ($null -ne (Get-Command -ErrorAction Ignore nvim)) {
+    $envs['VISUAL'] = "nvim.exe"
+}
+
 # Now set all environment variables if they don't exist or are set differently
 $envs.GetEnumerator() | Where-Object {
     $_.value -ne $(Get-Item -ErrorAction Ignore -Path Env:$($_.key)).value } |
