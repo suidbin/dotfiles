@@ -9,6 +9,8 @@
     ~/.config/:
       glob: true
       path: git/*
+    ~/.config/vim: vim
+    ~/.config/nvim: vim
     # add a convenient symlink to the dotfiles
     ~/.dotfiles: ""
 
