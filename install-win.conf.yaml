@@ -13,6 +13,10 @@
     ~/.config/nvim: vim
     # add a convenient symlink to the dotfiles
     ~/.dotfiles: ""
+    ~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState:
+      force: true
+      path: WindowsTerminal
+
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
