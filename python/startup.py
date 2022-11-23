@@ -55,8 +55,6 @@ class CustomInitialization:
         history = Path(hist).expanduser().absolute()
         history.parent.mkdir(parents=True, exist_ok=True)
         history.touch(exist_ok=True)
-        print(f"History file: {history}")
-
         return history
 
     @staticmethod
