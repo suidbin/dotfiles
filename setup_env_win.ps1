@@ -28,6 +28,10 @@ $envs = @{
     # linux: ~/.local, instead of %APPDATA%/Roaming/Python/Python310
     PYTHONUSERBASE = Join-Path $Env:UserProfile .local Python
 
+    # This helps the python prompt-toolkit on windows terminal know that we
+    # have true color enabled
+    PROMPT_TOOLKIT_COLOR_DEPTH = "DEPTH_24_BIT"
+
     # We'll use pyenv to manage local python installations in ~/.local/pyenv
     PYENV =      Join-Path $Env:UserProfile .local pyenv pyenv-win
     PYENV_ROOT = Join-Path $Env:UserProfile .local pyenv pyenv-win
