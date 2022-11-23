@@ -21,6 +21,9 @@ $envs = @{
     # Configure pipenv to create virtual env's inside of the project directory
     PIPENV_VENV_IN_PROJECT=1
 
+    # Custom Python startup file for interactive interpreter
+    PYTHONSTARTUP = Join-Path $Env:UserProfile .config python startup.py
+
     # I prefer my user site-packages to more closely match the location seen on
     # linux: ~/.local, instead of %APPDATA%/Roaming/Python/Python310
     PYTHONUSERBASE = Join-Path $Env:UserProfile .local Python
