@@ -13,6 +13,7 @@ Sources/Inspiration:
     - site.rlcompleter.register_readline
     - prompt_toolkit help documentation / samples
 """
+# pyright: reportMissingImports=false
 
 LOCALS = {}
 # Use the rich library if available, make rich.inspect available
@@ -36,6 +37,7 @@ try:
 except ImportError:
     pass
 
+
 class CustomInitialization:
     @staticmethod
     def init_histfile():
@@ -46,16 +48,17 @@ class CustomInitialization:
         if "PYTHONHISTFILE" in os.environ:
             hist = os.environ["PYTHONHISTFILE"]
         elif "XDG_DATA_HOME" in os.environ:
-            hist = Path(os.environ["XDG_DATA_HOME"]) / "python" / "python_history"
+            hist = os.environ["XDG_DATA_HOME"] + "/python/python_history"
         else:
-            hist = Path("~/.python_history")
-        
+            hist = "~/.python_history"
+
         history = Path(hist).expanduser().absolute()
         history.parent.mkdir(parents=True, exist_ok=True)
         history.touch(exist_ok=True)
+        print(f"History file: {history}")
 
         return history
-    
+
     @staticmethod
     def init_readline_completion():
         try:
@@ -81,14 +84,14 @@ class CustomInitialization:
             # want to ignore the exception.
             pass
 
-    @staticmethod
+    @classmethod
     def init_readline_history(cls):
         try:
             import readline
         except ImportError:
             return
         import atexit
-        
+
         cls.init_readline_completion()
         history = cls.init_histfile()
         readline.read_history_file(history)
@@ -115,7 +118,7 @@ try:
         from pygments.styles import get_style_by_name
         from prompt_toolkit.lexers import PygmentsLexer
         from prompt_toolkit.styles.pygments import style_from_pygments_cls
-        style = style_from_pygments_cls(get_style_by_name('onedark'))
+        style = style_from_pygments_cls(get_style_by_name('one-dark'))
         lexer = PygmentsLexer(PythonLexer)
     except ImportError:
         lexer = None
@@ -132,7 +135,7 @@ try:
         style=style,
         include_default_pygments_style=False
     )
-    code.interact(readfunc=custom_prompt, banner="", locals=LOCALS)
+    code.interact(readfunc=custom_prompt, banner="", local=LOCALS)
     raise SystemExit
 except ImportError:
     pass
