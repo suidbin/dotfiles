@@ -11,7 +11,7 @@ case "$TERM" in
 
         # colorized cat
         if hash pygmentize 2>/dev/null; then
-            alias pygmentize='pygmentize -f terminal16m -O style=monokai'
+            alias pygmentize='pygmentize -f terminal16m -O style=one-dark'
             alias ccat='pygmentize -g'
         fi
     ;;
