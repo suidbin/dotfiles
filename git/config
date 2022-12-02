@@ -3,3 +3,5 @@
 [include]
     path = ~/.config/git/config_local
 
+[alias]
+	lg = log --color --graph --pretty=format:'%C(yellow)%h %C(bold black)%as%Creset %<(51)%s%C(bold blue)<%an> %C(yellow)%d%Creset' --abbrev-commit
