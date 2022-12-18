@@ -36,6 +36,9 @@ $envs = @{
     PYENV =      Join-Path $Env:UserProfile .local pyenv pyenv-win
     PYENV_ROOT = Join-Path $Env:UserProfile .local pyenv pyenv-win
     PYENV_HOME = Join-Path $Env:UserProfile .local pyenv pyenv-win
+
+    # Change pip.ini to pip.conf and match location to wsl/linux
+    PIP_CONFIG_FILE = Join-Path $Env:UserProfile .config pip pip.conf
 }
 
 if ($null -ne (Get-Command -ErrorAction Ignore nvim)) {

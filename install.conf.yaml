@@ -14,6 +14,7 @@
 - link:
     ~/.config/vim: vim
     ~/.config/python: python
+    ~/.config/pip: pip
     ~/.config/tmux: tmux
     ~/.config/gdb:
       glob: true

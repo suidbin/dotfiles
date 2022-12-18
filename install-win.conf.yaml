@@ -11,6 +11,7 @@
       path: git/*
     ~/.config/vim: vim
     ~/.config/nvim: vim
+    ~/.config/pip: pip
     ~/.config/python: python
     # add a convenient symlink to the dotfiles
     ~/.dotfiles: ""
