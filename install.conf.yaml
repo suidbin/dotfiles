@@ -15,7 +15,9 @@
     ~/.config/vim: vim
     ~/.config/python: python
     ~/.config/tmux: tmux
-    ~/.config/gdb: gdb
+    ~/.config/gdb:
+      glob: true
+      path: gdb/*
     ~/.config/git/:
       glob: true
       path: git/*
