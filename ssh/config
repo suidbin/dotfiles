@@ -1,0 +1,4 @@
+# Include the user ssh_config.d directory for additional host declarations
+# or configurations
+Include ~/.ssh/ssh_config.d/*.conf
+

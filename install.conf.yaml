@@ -10,12 +10,15 @@
       mode: 0700
     ~/.local/share:
       mode: 0700
+    ~/.ssh:
+      mode: 0711
 
 - link:
     ~/.config/vim: vim
     ~/.config/python: python
     ~/.config/pip: pip
     ~/.config/tmux: tmux
+    ~/.ssh/config: ssh/config
     ~/.config/gdb:
       glob: true
       path: gdb/*
