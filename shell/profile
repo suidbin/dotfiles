@@ -49,8 +49,11 @@ case $TERM in
    vte*)
 esac
 
-# Set less/gdb to save the history in $XDG_DATA_HOME
+# Save less history in $XDG_DATA_HOME
 export LESSHISTFILE="$XDG_DATA_HOME"/less_history
+# Enables better tmux interactions (mouse/pg-up/pg-down)
+export LESS="--RAW-CONTROL-CHARS --quit-if-one-screen"
+
 export GDBHISTFILE="$XDG_DATA_HOME"/gdb_history
 export GEF_RC="$XDG_CONFIG_HOME"/gdb/gefrc
 
