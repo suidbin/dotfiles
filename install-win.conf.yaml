@@ -13,6 +13,7 @@
     ~/.config/nvim: vim
     ~/.config/pip: pip
     ~/.config/python: python
+    ~/.ssh/config: ssh/config
     # add a convenient symlink to the dotfiles
     ~/.dotfiles: ""
     ~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState:
