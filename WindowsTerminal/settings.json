@@ -40,7 +40,7 @@
             "font": 
             {
                 "face": "FiraCode NF",
-                "size": 11,
+                "size": 11.0,
                 "weight": "medium"
             }
         },
@@ -72,15 +72,9 @@
             },
             {
                 "guid": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
-                "hidden": true,
+                "hidden": false,
                 "name": "Ubuntu-22.04",
                 "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{f9ceaf27-504c-58d7-927c-d1d6a7ac7d3c}",
-                "hidden": false,
-                "name": "Ubuntu 22.04.1 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
             }
         ]
     },
@@ -362,5 +356,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "themes": []
 }
