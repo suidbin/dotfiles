@@ -34,6 +34,7 @@ $packages = @{
 #    " "
     "Valve.Steam" = ""
     "Neovim.Neovim" = ""
+    "Hashicorp.Vagrant" = ""
 }
 
 $packages.GetEnumerator() | ForEach-Object {

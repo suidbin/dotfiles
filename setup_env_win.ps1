@@ -39,6 +39,13 @@ $envs = @{
 
     # Change pip.ini to pip.conf and match location to wsl/linux
     PIP_CONFIG_FILE = Join-Path $Env:UserProfile .config pip pip.conf
+
+    # Change default provider for Vagrant to HyperV
+    VAGRANT_DEFAULT_PROVIDER = "hyperv"
+    # Disable admin check on Vagrant
+    VAGRANT_IS_HYPERV_ADMIN = "true"
+    # Vagrant home relocation
+    VAGRANT_HOME = Join-Path $Env:Userprofile .local share vagrant
 }
 
 if ($null -ne (Get-Command -ErrorAction Ignore nvim)) {
