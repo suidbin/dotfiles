@@ -1,0 +1,80 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+require 'etc'
+ssh_dir = Dir.home(Etc.getlogin) + "/.ssh"
+wsl_conf_dir = ""
+
+if Gem.win_platform?
+    # in some domain environments your HOME gets set to some network share, this
+    # is hopefully a better way to get the actual .ssh directory
+    ssh_dir = "#{ENV['USERPROFILE']}/.ssh"
+    wsl_conf_dir = `#{ENV['WINDIR']}/system32/wsl wslpath -m ~/.ssh/ssh_config.d`.strip
+end
+
+ssh_key = "#{ssh_dir}/id_rsa"
+ssh_conf_dir = "#{ssh_dir}/ssh_config.d"
+
+Vagrant.configure("2") do |config|
+    # Load our ssh public key into the authorized_keys file of any vm we create
+    if File.file?(ssh_key)
+        config.vm.provision "shell" do |s|
+            s.name = "SSH Public Key --> authorized_keys"
+            ssh_pub_key = File.readlines(ssh_key + ".pub").first.strip
+            s.inline = <<-SHELL
+                if grep -sq "#{ssh_pub_key}" /home/vagrant/.ssh/authorized_keys; then
+                    echo "SSH keys already provisioned."
+                    exit 0;
+                fi
+                mkdir -p /home/vagrant/.ssh
+                touch /home/vagrant/.ssh/authorized_keys
+                echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys
+                chown -R vagrant:vagrant /home/vagrant
+                exit 0
+            SHELL
+        end
+    end
+
+    # Custom up trigger: Everytime a machine is brought up or provisioned,
+    # output the ssh_config into the ssh_config.d directory
+    config.trigger.after :up, :reload, :provision do |trigger|
+        trigger.info = "Output ssh-config --> ssh_config.d"
+        trigger.ruby do |env, machine|
+            require Vagrant.source_root.join("plugins/commands/ssh_config/command")
+            ssh_hostname = machine.config.vm.hostname || machine.name
+            cmd = VagrantPlugins::CommandSSHConfig::Command.new(["--host", "#{ssh_hostname}", "#{machine.name}"], env)
+            # save stdout for the following ruby method call into a string
+            old_stdout = $stdout
+            $stdout = StringIO.new
+            cmd.execute
+            output = $stdout.string
+            $stdout = old_stdout
+            conf_name = "vagrant-#{ssh_hostname}.conf"
+            [wsl_conf_dir, ssh_conf_dir].each do |directory|
+                host_conf_file = File.join(directory, conf_name)
+                machine.ui.info("Writing #{host_conf_file}")
+                File.binwrite(host_conf_file, output)
+            end
+            machine.ui.output("----------------------------------------------")
+            machine.ui.output("    Machine available: ssh #{ssh_hostname}")
+            machine.ui.output("----------------------------------------------")
+        end
+    end
+
+    # Custom down trigger: Remove the ssh config file when the machine is down
+    config.trigger.after :destroy, :halt do |trigger|
+        trigger.info = "Remove ssh_config for host..."
+        trigger.ruby do |env, machine|
+            ssh_hostname = machine.config.vm.hostname || machine.name
+            conf_name = "vagrant-#{ssh_hostname}.conf"
+            [wsl_conf_dir, ssh_conf_dir].each do |directory|
+                host_conf_file = File.join(directory, conf_name)
+                if File.file?(host_conf_file)
+                    machine.ui.info("Deleting #{host_conf_file}")
+                    File.delete(host_conf_file)
+                end
+            end
+        end
+    end
+end
+

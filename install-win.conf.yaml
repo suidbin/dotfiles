@@ -5,6 +5,12 @@
 
 - clean: ['~', '~/.config']
 
+- create:
+    ~/.local/share:
+      mode: 0700
+    ~/.config/vagrant:
+      mode: 0700
+
 - link:
     ~/.config/:
       glob: true
@@ -13,6 +19,8 @@
     ~/.config/nvim: vim
     ~/.config/pip: pip
     ~/.config/python: python
+    ~/.local/share/vagrant/Vagrantfile: vagrant/Vagrantfile
+    ~/.config/vagrant/Vagrantfile: vagrant/Vagrantfile
     ~/.ssh/config: ssh/config
     # add a convenient symlink to the dotfiles
     ~/.dotfiles: ""
