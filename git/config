@@ -1,7 +1,10 @@
 
-# Allow local customization in a gitconfig_local file
 [include]
+    # Allow local customization in a gitconfig_local file
     path = ~/.config/git/config_local
+    # Configure the delta diff tool
+    # will be symlinked by dotbot if it is found on the system
+    path = delta
 
 [alias]
     lg = log --color --graph --pretty=format:'%C(yellow)%h %C(bold black)%as%Creset %<(51)%s%C(bold blue)<%an> %C(yellow)%d%Creset' --abbrev-commit

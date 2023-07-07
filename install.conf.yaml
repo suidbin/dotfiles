@@ -22,9 +22,11 @@
     ~/.config/gdb:
       glob: true
       path: gdb/*
-    ~/.config/git/:
-      glob: true
-      path: git/*
+    ~/.config/git/config: git/config
+    ~/.config/git/ignore: git/ignore
+    ~/.config/git/delta:
+      if: 'command -v delta'
+      path: git/delta
     ~/.profile:
       force: true
       path: shell/profile

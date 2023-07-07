@@ -12,9 +12,11 @@
       mode: 0700
 
 - link:
-    ~/.config/:
-      glob: true
-      path: git/*
+    ~/.config/git/config: git/config
+    ~/.config/git/ignore: git/ignore
+    ~/.config/git/delta:
+      if: 'where /q delta'
+      path: git/delta
     ~/.config/vim: vim
     ~/.config/nvim: vim
     ~/.config/pip: pip
