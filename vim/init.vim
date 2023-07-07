@@ -53,6 +53,10 @@ set showcmd       " show incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " statusline is always visible
 
+" Some preferences for the file browser (:Ex)plore :
+set g:netrw_banner     = 0  " Disable the banner
+set g:netrw_liststyle  = 3  " Default to tree view
+
 " setting default tabstop and shiftwidth to 4 spaces (expandtabs)
 set tabstop=4
 set shiftwidth=4
