@@ -14,19 +14,23 @@
       mode: 0711
 
 - link:
-    ~/.config/vim: vim
-    ~/.config/python: python
-    ~/.config/pip: pip
-    ~/.config/tmux: tmux
-    ~/.ssh/config: ssh/config
-    ~/.config/gdb:
-      glob: true
-      path: gdb/*
+    #..--==[ Common between *nix and Windows ]==--..
     ~/.config/git/config: git/config
     ~/.config/git/ignore: git/ignore
     ~/.config/git/delta:
       if: 'command -v delta'
       path: git/delta
+    ~/.config/python: python
+    ~/.config/pip: pip
+    ~/.config/vim: vim
+    ~/.config/nvim: vim
+    ~/.ssh/config: ssh/config
+
+    #..--==[ OS Specific ]==--..
+    ~/.config/tmux: tmux
+    ~/.config/gdb:
+      glob: true
+      path: gdb/*
     ~/.profile:
       force: true
       path: shell/profile
@@ -34,8 +38,6 @@
       force: true
       path: shell/bashrc
     ~/.config/bash_aliases: shell/bash_aliases
-    # add a convenient symlink to the dotfiles
-    ~/.dotfiles: ""
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

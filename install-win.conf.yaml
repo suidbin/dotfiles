@@ -12,20 +12,21 @@
       mode: 0700
 
 - link:
+    #..--==[ Common between *nix and Windows ]==--..
     ~/.config/git/config: git/config
     ~/.config/git/ignore: git/ignore
     ~/.config/git/delta:
       if: 'where /q delta'
       path: git/delta
+    ~/.config/python: python
+    ~/.config/pip: pip
     ~/.config/vim: vim
     ~/.config/nvim: vim
-    ~/.config/pip: pip
-    ~/.config/python: python
+    ~/.ssh/config: ssh/config
+
+    #..--==[ OS Specific ]==--..
     ~/.local/share/vagrant/Vagrantfile: vagrant/Vagrantfile
     ~/.config/vagrant/Vagrantfile: vagrant/Vagrantfile
-    ~/.ssh/config: ssh/config
-    # add a convenient symlink to the dotfiles
-    ~/.dotfiles: ""
     ~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState:
       force: true
       path: WindowsTerminal
