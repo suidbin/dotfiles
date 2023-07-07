@@ -77,3 +77,6 @@ fi
 if [ -f "${XDG_CONFIG_HOME}/bash_aliases" ]; then
     source "${XDG_CONFIG_HOME}/bash_aliases"
 fi
+
+# load fzf bindings if available
+source /usr/share/doc/fzf/examples/key-bindings.bash 2> /dev/null || true
